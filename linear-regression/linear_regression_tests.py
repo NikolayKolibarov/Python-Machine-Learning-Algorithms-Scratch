@@ -5,6 +5,11 @@ import matplotlib.pyplot as plt
 
 from linear_regression import LinearRegression
 
+
+def mse(y_true, y_predicted):
+    return np.mean((y_true - y_predicted) ** 2)
+
+
 X, y = datasets.make_regression(n_samples=100, n_features=1, noise=20, random_state=4)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1234)
 
@@ -14,11 +19,6 @@ plt.show()
 linear_regression_model = LinearRegression(learning_rate=0.01)
 linear_regression_model.fit(X_train, y_train)
 predicted = linear_regression_model.predict(X_test)
-
-
-def mse(y_true, y_predicted):
-    return np.mean((y_true - y_predicted) ** 2)
-
 
 mse_value = mse(y_test, predicted)
 print(mse_value)
