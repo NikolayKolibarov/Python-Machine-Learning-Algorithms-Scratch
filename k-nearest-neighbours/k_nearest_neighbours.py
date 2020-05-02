@@ -15,8 +15,8 @@ class KNN:
         self.y_train = y
 
     def predict(self, X):
-        predicted_labels = [self.predict_x(x) for x in X]
-        return np.array(predicted_labels)
+        y_pred = [self.predict_x(x) for x in X]
+        return np.array(y_pred)
 
     def predict_x(self, x):
         # compute distances
